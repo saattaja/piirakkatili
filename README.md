@@ -12,3 +12,5 @@ Names and pie values are updated realtime from Firebase Firestore database. Addi
 
 ## Configuring
 Clone this repository to your computer. Open it with VSC and run npm install. You also need working connection to Expo app. To use this app, create .env file and add required API keys to it.
+
+*Janita Kaikkonen*
