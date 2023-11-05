@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from './HomeScreen';
-import AccInfo from './AccInfo';
-import AddPie from './AddPie';
+import HomeScreen from './Views/HomeScreen';
+import AccInfo from './Views/AccInfo';
+import AddPie from './Views/AddPie';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -61,10 +61,6 @@ export default function App() {
         </Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
-    /*<View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>*/
   );
 }
 

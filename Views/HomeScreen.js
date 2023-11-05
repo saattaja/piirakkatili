@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
 import { AntDesign } from '@expo/vector-icons'
-import { db, collection, addDoc, doc, onSnapshot, query, USERS} from "./firebase/Config";
+import { db, collection, addDoc, doc, onSnapshot, query, USERS} from "../firebase/Config";
 
 export default function HomeScreen({navigation}){
 useLayoutEffect(()=>{
@@ -15,19 +15,7 @@ useLayoutEffect(()=>{
 
 const [pievalue, setPievalue] = useState([])
 
-/*useEffect(()=>{
-
-    const unsub = onSnapshot(doc(db, 'users', 'jape'), (doc)=>{
-        const amount = (doc.data().pies)
-        setPievalue(amount)
-        console.log({amount})
-    return ()=>{
-        unsub();
-    }
-    })
-},[])  */
-//unsub();
-
+//haetaan tietokannasta henkilöiden nimet ja piirakkamäärät
 useEffect(()=>{
     const q = query(collection(db, USERS))
 

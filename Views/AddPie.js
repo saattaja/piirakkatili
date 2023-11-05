@@ -1,5 +1,5 @@
 
-import { db, USERS, updateDoc, collection, increment, query, onSnapshot, doc } from "./firebase/Config";
+import { db, USERS, updateDoc, collection, increment, query, onSnapshot, doc } from "../firebase/Config";
 import React, { useLayoutEffect, useState, useEffect } from "react";
 import { StyleSheet, View, Text, Button, SafeAreaView, ScrollView } from "react-native";
 
@@ -16,7 +16,7 @@ useLayoutEffect(()=>{
 const [newPie, setNewPie] = useState(0)
 const [pievalue, setPievalue] = useState([])
 
-
+//haetaan tietokannasta henkilöiden nimet
 useEffect(()=>{
     const q = query(collection(db, USERS))
 
@@ -41,7 +41,7 @@ useEffect(()=>{
     
   },[])
 
-
+//toiminto piirakoiden lisäämiseen ja tiedon lähetys tietokantaan
 const update = async(person) =>{
     console.log(person)
     const docuRef = doc(db, USERS, person)
@@ -53,6 +53,7 @@ const update = async(person) =>{
 
 
 const Separator = () => <View style={styles.separator} />;
+
     return(
         <SafeAreaView style={styles.container}>
             <ScrollView >
