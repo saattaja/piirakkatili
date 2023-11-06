@@ -1,7 +1,7 @@
 
-import { db, USERS, updateDoc, collection, increment, query, onSnapshot, doc } from "../firebase/Config";
+import { db, USERS, updateDoc, collection, increment, query, onSnapshot, doc, addDoc, serverTimestamp } from "../firebase/Config";
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import { StyleSheet, View, Text, Button, SafeAreaView, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Button, SafeAreaView, ScrollView, TextInput } from "react-native";
 
 export default function AddPie({navigation}) {
 
@@ -13,7 +13,7 @@ useLayoutEffect(()=>{
 })
 },[])
 
-const [newPie, setNewPie] = useState(0)
+const [newMessage, setNewMessage] = useState('')
 const [pievalue, setPievalue] = useState([])
 
 //haetaan tietokannasta henkilöiden nimet
@@ -48,6 +48,14 @@ const update = async(person) =>{
     await updateDoc(docuRef,{
         pies: increment(1)
     }).catch(error => console.log(error))
+
+    const msgRef = collection(db, USERS, person, "messages")
+    await addDoc(msgRef,{
+        text: newMessage,
+        created: serverTimestamp()
+    }).catch(error=>console.log(error))
+    setNewMessage('')
+    console.log('message saved')
 }
 
 
@@ -63,6 +71,7 @@ const Separator = () => <View style={styles.separator} />;
     pievalue.map((bills)=>(
         <View key={bills.id} style={styles.box}>
             <Text style={styles.characters}>{bills.character}: </Text>
+            <TextInput placeholder="Details of pie" value={newMessage} onChangeText={text=>setNewMessage(text)}></TextInput>
             <Button title="Add" color="salmon" onPress={()=>update(bills.id)}></Button>
             <Separator></Separator>
         </View>

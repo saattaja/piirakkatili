@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getFirestore, collection, doc, setDoc, addDoc, serverTimestamp, onSnapshot, query, updateDoc
-, increment} from 'firebase/firestore';
+, increment, orderBy} from 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -29,5 +29,6 @@ export{
     doc,
     query,
     updateDoc,
-    increment
+    increment,
+    orderBy
 };
