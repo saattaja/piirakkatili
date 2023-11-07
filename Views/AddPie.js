@@ -72,7 +72,7 @@ const Separator = () => <View style={styles.separator} />;
         <View key={bills.id} style={styles.box}>
             <Text style={styles.characters}>{bills.character}: </Text>
             <TextInput placeholder="Details of pie" value={newMessage} onChangeText={text=>setNewMessage(text)}></TextInput>
-            <Button title="Add" color="salmon" onPress={()=>update(bills.id)}></Button>
+            <Button title="Add" color="#4F6D7A" onPress={()=>update(bills.id)}></Button>
             <Separator></Separator>
         </View>
     ))
@@ -95,14 +95,20 @@ const styles = StyleSheet.create({
     },
     characters: {
         fontSize: 20,
-        paddingBottom: 20,
         textAlign: "center"
     },
     separator:{
-        marginVertical: 30
+        marginVertical: 10
     },
     box:{
-        paddingVertical: 20,
-        paddingHorizontal: 50,
+        padding: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        backgroundColor: '#C0D6DF',
+        borderColor: '#ccc',
+        borderWidth: 1,
+        borderRadius: 5,
+        marginLeft: 10,
+        marginRight: 10
     }
 })
